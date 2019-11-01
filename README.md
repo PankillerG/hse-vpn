@@ -4,6 +4,8 @@ This script tested and works properly on **Ubuntu 18.04**
 ### Installation
 Run the following commands as root:
 ```bash
+sudo apt update
+sudo apt install git
 git clone https://github.com/nordikafiles/hse-vpn
 ./hse-vpn/setup.sh
 ```
