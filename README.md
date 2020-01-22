@@ -6,7 +6,7 @@ Run the following commands as root:
 ```bash
 sudo apt update
 sudo apt install git
-https://github.com/PankillerG/hse-vpn
+git clone https://github.com/PankillerG/hse-vpn
 ./hse-vpn/setup.sh
 ```
 ### Usage
