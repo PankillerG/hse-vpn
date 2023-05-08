@@ -22,7 +22,9 @@ ln -s "$SCRIPT_DIR/start.sh" /usr/bin/start_openvpn
 ln -s "$SCRIPT_DIR/stop.sh" /usr/bin/stop_openvpn
 ln -s "$SCRIPT_DIR/create_openvpn_user.sh" /usr/bin/create_openvpn_user
 
-docker run -v /root/ovpn-data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u "tcp://51.250.20.91:443"
+read -p "Enter server ip: " server_ip
+
+docker run -v /root/ovpn-data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u "tcp://$server_ip:443"
 docker run -v /root/ovpn-data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn ovpn_initpki
 
 docker run --name openvpn --restart always -v /root/ovpn-data:/etc/openvpn -d -p 443:1194 --cap-add=NET_ADMIN kylemanna/openvpn
